@@ -79,7 +79,7 @@ public class UniversalController extends BaseController {
         } else if ("110".equals(type)) {
             QStudentDao studentDao = QStudentDao.studentDao;
             List<StudentDao> searchData = jpa.selectFrom(studentDao)
-                    .where(studentDao.name.like(key))
+                    .where(studentDao.name.contains(key))
                     .fetch();
             return Dump.success(searchData);
         }
